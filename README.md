@@ -37,3 +37,14 @@ static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hi
 
     - input 2
     - min-max normalization
+
+### Model
+
+#### 전체 model
+![그림2](https://user-images.githubusercontent.com/96029849/204230104-bf1383b1-fd3e-47d9-b94a-bdf4ae8e1461.png)
+
+#### 개별 모델
+![AAntibiotics model](https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png)
+
+### 결과
+
