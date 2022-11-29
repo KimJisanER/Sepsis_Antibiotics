@@ -50,14 +50,28 @@ static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hi
 #### 개별 모델
 <img src="https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png" width="400" height="1000"/>
 
-### 결과
+### Outcome
 
 #### 개별 모델 성능
 
 <img src="https://user-images.githubusercontent.com/96029849/204468615-71d8c7b0-4e51-417a-9e51-00a946b0e1c0.png" width="450" height="300"/>
 <img src="https://user-images.githubusercontent.com/96029849/204468800-8aa0170b-ebd6-4d55-9f4f-8a9cad899ef2.png" width="450" height="300"/>
 
-- 
+    - Test AUROC = 0.768로 성능이 좋지 않았다.
 
+#### 전체 모델의 간략한 evaluation
+
+![image](https://user-images.githubusercontent.com/96029849/204472799-eeaee4b3-fb1a-488c-bb81-c5a69fcf974d.png)
+
+    - 추천 항생제와 실제 환자에게 처방된 항생제, 항생제 감수성 결과가 상이하다.
+    - 전체 모델의 성능이 좋지 않아 개선해야 할 점이 많아 보인다.
+    
+### Discussion
+
+사용한 dataset의 환자생존 비율이 85%, 사망비율이 15%로 불균형했기 때문에 dataset이 적을경우 환자가 생존할 것이라고 예측하는 경향성이 있었다.
+항생제 중 Macrolide를 투여받은 환자 수는 1919명으로 데이터가 부족했고 이를 학습데이터로 사용한 Macrolide Model이 환자의 사망률을 낮게 예측하는 문제가 있었다.
+또한, 사용된 input features가 부족하거나 부적절 했던 것 같다. 감염원에 따라 패혈증 환자의 vital sign이나 lab data가 영향을 받는다는 것을 전제로 dynamic features를
+input으로 선정했는데, 진균의 경우 다른 감염보다 패혈증 환자의 체온을 높이는 경향성이 있지만 다른 세균/세균간 감염시 vital sign, lab data 등의 차이, 패턴등이 있을 것이라고
+가정하는데는 근거가 부족하다. input features에 최초 감염부위를 추가 했더라면 감염부위 별 감염원의 역학적 요소가 추가되어 성능 향상에 도움이 되었을 것 같다.
 
 
