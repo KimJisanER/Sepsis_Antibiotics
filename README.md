@@ -45,7 +45,7 @@ static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hi
 ![그림2](https://user-images.githubusercontent.com/96029849/204230104-bf1383b1-fd3e-47d9-b94a-bdf4ae8e1461.png)
 
 #### 개별 모델
-![AAntibiotics model](https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png, size=[400,600])
+<img src="https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png" width="400" height="600"/>
 
 ### 결과
 
