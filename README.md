@@ -54,7 +54,7 @@ static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hi
 
 #### 개별 모델 성능
 
-<img src="https://user-images.githubusercontent.com/96029849/204468615-71d8c7b0-4e51-417a-9e51-00a946b0e1c0.png" width="400" height="400"/>
+<img src="https://user-images.githubusercontent.com/96029849/204468615-71d8c7b0-4e51-417a-9e51-00a946b0e1c0.png" width="600" height="400"/>
 <img src="https://user-images.githubusercontent.com/96029849/204468800-8aa0170b-ebd6-4d55-9f4f-8a9cad899ef2.png" width="400" height="400"/>
 
 - 
