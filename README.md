@@ -14,6 +14,7 @@
 이 프로젝트에서는 MIMIC-IV database에서 sepsis환자들의 vital sign, lab data, demographic 등을 사용하였다. 
 MIMIC-IV는 미국 매사추세츠주 보스턴에 있는 3차 학술 의료기관에 입원한 환자의 실제 입원 기간을 포함하는 관계형 데이터베이스로
 의료 분야의 다양한 연구를 지원하기 위해 만들어졌고, laboratory measurements, medications administered, vital signs 등 각 환자에 대한 포괄적인 데이터를 포함하고 있습니다.
+https://physionet.org/content/mimiciv/2.1/
 
 패혈증환자는 sepsis-3 정의에 따라 32365개의 내원번호(hadm_id)를 추려서 사용하였습니다.
     - That is, the earliest time at which a patient had SOFA >= 2 and suspicion of infection.
@@ -44,7 +45,8 @@ static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hi
 ![그림2](https://user-images.githubusercontent.com/96029849/204230104-bf1383b1-fd3e-47d9-b94a-bdf4ae8e1461.png)
 
 #### 개별 모델
-![AAntibiotics model](https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png)
+![AAntibiotics model](https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png, size=(400,600))
 
 ### 결과
+
 
