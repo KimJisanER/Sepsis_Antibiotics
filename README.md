@@ -20,9 +20,9 @@ https://physionet.org/content/mimiciv/2.1/
     - That is, the earliest time at which a patient had SOFA >= 2 and suspicion of infection.
     - Implicitly this assumes baseline SOFA was 0 before ICU admission.
 
-Input features
+#### Input features
 
-dynamic features = ['FiO2', 'HR', 'PaO2', 'SBP', 'Temperature','Creatinine','Glucose', 'Hb', 'Lactate', 'Plt','Sodium' ,'WBC', 'DBP', 'MAP', 'RESP', 'Chloride', 'Hct', 'PCO2', 'Potassium', 'PH', 'Anion Gap', 'Bilirubin']
+*dynamic features = ['FiO2', 'HR', 'PaO2', 'SBP', 'Temperature','Creatinine','Glucose', 'Hb', 'Lactate', 'Plt','Sodium' ,'WBC', 'DBP', 'MAP', 'RESP', 'Chloride', 'Hct', 'PCO2', 'Potassium', 'PH', 'Anion Gap', 'Bilirubin']
 
     - input 1
     - 입실 시점으로부터 1시간 간격으로 추출
@@ -34,7 +34,7 @@ dynamic features = ['FiO2', 'HR', 'PaO2', 'SBP', 'Temperature','Creatinine','Glu
     - 변수별로 MIN, MAX의 Normal range 를 설정해서 정규화
     - 24시간보다 짧은 경우 zero padding함
 
-static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hispanic, White)]
+*static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hispanic, White)]
 
     - input 2
     - min-max normalization
@@ -71,7 +71,7 @@ static features = ['weight', 'age', 'gender', 'insurance', race(Asian, Black, Hi
 사용한 dataset의 환자생존 비율이 85%, 사망비율이 15%로 불균형했기 때문에 dataset이 적을경우 환자가 생존할 것이라고 예측하는 경향성이 있었다.
 항생제 중 Macrolide를 투여받은 환자 수는 1919명으로 데이터가 부족했고 이를 학습데이터로 사용한 Macrolide Model이 환자의 사망률을 낮게 예측하는 문제가 있었다.
 또한, 사용된 input features가 부족하거나 부적절 했던 것 같다. 감염원에 따라 패혈증 환자의 vital sign이나 lab data가 영향을 받는다는 것을 전제로 dynamic features를
-input으로 선정했는데, 진균의 경우 다른 감염보다 패혈증 환자의 체온을 높이는 경향성이 있지만 다른 세균/세균간 감염시 vital sign, lab data 등의 차이, 패턴등이 있을 것이라고
+input으로 선정했는데, 진균의 경우 다른 감염보다 패혈증 환자의 체온을 높이는 경향성이 있지만 다른 세균/세균간 감염시 vital sign, lab data의 차이, 패턴등이 있을 것이라고
 가정하는데는 근거가 부족하다. input features에 최초 감염부위를 추가 했더라면 감염부위 별 감염원의 역학적 요소가 추가되어 성능 향상에 도움이 되었을 것 같다.
 
 
