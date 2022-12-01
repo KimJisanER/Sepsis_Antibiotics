@@ -45,7 +45,7 @@ https://physionet.org/content/mimiciv/2.1/
 ![그림2](https://user-images.githubusercontent.com/96029849/204230104-bf1383b1-fd3e-47d9-b94a-bdf4ae8e1461.png)
 
     - 개별 모델에서 sepsis 환자의 dynamic features(vital sign, lab data), static features(demographics, weight etc)을 input으로 환자의 생존, 사망을 예측
-    - 사용 항생제 별로 학습 data와 모델을 나누어 다수의 사망 예측모델을 구축하여 사망율을 예측 > 가장 사망율이 낮을 것이라고 예측하는 모델의 항생제를 채택 
+    - 사용 항생제 별로 학습 data와 모델을 나누어 다수의 사망 예측모델을 구축하여 사망율을 예측 ➝ 가장 사망율이 낮을 것이라고 예측하는 모델의 항생제를 채택 
 
 #### 개별 모델
 <img src="https://user-images.githubusercontent.com/96029849/204230316-2a35dd77-a1e3-427c-b503-e1540a005bbc.png" width="400" height="1000"/>
@@ -68,6 +68,7 @@ https://physionet.org/content/mimiciv/2.1/
     
 ### Discussion
 
+dynamic data를 기반으로한 sepsis 사망 예측모델을 묶어 
 사용한 dataset의 환자생존 비율이 85%, 사망비율이 15%로 불균형했기 때문에 dataset이 적을경우 환자가 생존할 것이라고 예측하는 경향성이 있었다.
 항생제 중 Macrolide를 투여받은 환자 수는 1919명으로 데이터가 부족했고 이를 학습데이터로 사용한 Macrolide Model이 환자의 사망률을 낮게 예측하는 문제가 있었다.
 또한, 사용된 input features가 부족하거나 부적절 했던 것 같다. 감염원에 따라 패혈증 환자의 vital sign이나 lab data가 영향을 받는다는 것을 전제로 dynamic features를
