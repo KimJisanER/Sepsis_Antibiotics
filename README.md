@@ -68,7 +68,11 @@ https://physionet.org/content/mimiciv/2.1/
     
 ### Discussion
 
-dynamic data를 기반으로한 sepsis 사망 예측모델을 묶어 
+'패혈증 환자의 데이터분석에 기반한 항생제 추천 보조 ai모델'의 매커니즘은
+dynamic data를 기반으로한 sepsis 사망 예측모델을 묶어, 사망할 확률이 가장 낮을 것이라 예측되는 항생제를 추천하는 것이다.
+환자의 vital sign, lab data등 dynamic data를 LSTM model에 학습시키고 각 항생제 계열마다 만든 모델을 종합해서 하나의 모델을 구성한다는 것은 새로웠지만
+구현하는데 있어 어려움과 허점이 많았다.
+
 사용한 dataset의 환자생존 비율이 85%, 사망비율이 15%로 불균형했기 때문에 dataset이 적을경우 환자가 생존할 것이라고 예측하는 경향성이 있었다.
 항생제 중 Macrolide를 투여받은 환자 수는 1919명으로 데이터가 부족했고 이를 학습데이터로 사용한 Macrolide Model이 환자의 사망률을 낮게 예측하는 문제가 있었다.
 또한, 사용된 input features가 부족하거나 부적절 했던 것 같다. 감염원에 따라 패혈증 환자의 vital sign이나 lab data가 영향을 받는다는 것을 전제로 dynamic features를
