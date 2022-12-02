@@ -38,6 +38,14 @@ https://physionet.org/content/mimiciv/2.1/
 
     - input 2
     - min-max normalization
+    
+#### 항생제계열 별 환자분포(hadm_id)
+
+    - glycopeptide계 : 11766
+    - cephalosporin계 : 10963
+    - penicillin계 : 6072
+    - fluoroquinolone계 : 3654
+    - macrolide계 : 1920
 
 ### Model
 
@@ -71,11 +79,16 @@ https://physionet.org/content/mimiciv/2.1/
 '패혈증 환자의 데이터분석에 기반한 항생제 추천 보조 ai모델'의 매커니즘은
 dynamic data를 기반으로한 sepsis 사망 예측모델을 묶어, 사망할 확률이 가장 낮을 것이라 예측되는 항생제를 추천하는 것이다.
 환자의 vital sign, lab data등 dynamic data등을 LSTM model에 학습시켜 각 항생제 계열마다 만든 사망 예측모델을 종합해서 하나의 항생제 추천모델을 구성한다는 것은 새로웠지만
-구현하는데 있어 어려움과 허점이 많았다.
+구현하는데 있어 어려움과 허점이 많았다. 데이터 부족과 불균형으로 인한 문제가 가장 많았다.
+#### 
 사용한 dataset의 환자생존 비율이 85%, 사망비율이 15%로 불균형했기 때문에 dataset이 적을경우 환자가 생존할 것이라고 예측하는 경향성이 있었다.
-항생제 중 Macrolide를 투여받은 환자 수는 1919명으로 데이터가 부족했고 이를 학습데이터로 사용한 Macrolide Model이 환자의 사망률을 낮게 예측하는 문제가 있었다.
-또한, 사용된 input features가 부족하거나 부적절 했던 것 같다. 감염원에 따라 패혈증 환자의 vital sign이나 lab data가 영향을 받는다는 것을 전제로 dynamic features를
+항생제 중 Macrolide를 투여받은 환자 수는 1920명으로 데이터가 부족했고 이를 학습데이터로 사용한 Macrolide Model이 환자의 사망률을 낮게 예측하는 문제가 있었다.
+또한, 같은 계열의 항생제라도 항균 spectrum이 다른데, 데이터가 많아 항생제를 계열보다 구체적인 분류인 세대(ex. 2세대 cepha, 3세대 cepha 등)으로 나누어 적용시킬 수 있었다면
+성능과 모델의 유효성이 향상되었을 것이다.
+#### 
+마지막으로, 사용된 input features가 부족하거나 부적절 했던 것 같다. 감염원에 따라 패혈증 환자의 vital sign이나 lab data가 영향을 받는다는 것을 전제로 dynamic features를
 input으로 선정했는데, 진균의 경우 다른 감염보다 패혈증 환자의 체온을 높이는 경향성이 있지만 다른 세균/세균간 감염시 vital sign, lab data의 차이, 패턴등이 있을 것이라고
 가정하는데는 근거가 부족하다. input features에 최초 감염부위를 추가 했더라면 감염부위 별 감염원의 역학적 요소가 추가되어 성능 향상에 도움이 되었을 것 같다.
+
 
 
